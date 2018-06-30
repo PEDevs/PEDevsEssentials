@@ -46,9 +46,9 @@ class MainBase extends PluginBase{
 			$g->sendMessage("§6» §bYou Healed");
 			}elseif(empty($args[0])){
 			if($oyuncu == $this->getServer()->isPlayer($args[0])){
-				$oyuncu->sendMessage("§6»§b $g->getName() You Healled");
+				$oyuncu->sendMessage("§6»§b $g->getName() You Feeding");
 				$oyuncu->setFood(20);
-				$g->sendMessage("$oyuncu->getName() has been Healthed");
+				$g->sendMessage("$oyuncu->getName() has been Feeding");
 			}
 			}
 			}
