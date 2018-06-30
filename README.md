@@ -1,7 +1,7 @@
 # PEDevsEssentials
 Essentials Plugin For Pocketmine
-[![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/UsuhCFj) 
-
+| Discord |:
+[![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/xkk6g8M)
 # PEDevsEsssentials Plugin for Pocketmine
 # TODO:
 - [x] Fly
