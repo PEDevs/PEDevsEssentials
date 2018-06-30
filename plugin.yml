@@ -1,0 +1,32 @@
+name: PEDevsEssentials
+version: 2.0
+api: [3.0.0]
+main: PEDevs\MainBase
+author: PEDevs
+website: https://github.com/PEDevs
+
+commands:
+ fly:
+  description: Fly Mode
+ heal:
+  description: Heal Command
+ feed:
+  description: Feed Command
+ warn:
+  description: Warn Command
+ repair:
+  description: Repair Command
+ spawn:
+  description: Spawn Command
+ uc:
+  description: Ucus Modu
+ can:
+  description: Canini Doldur
+ beslen:
+  description: beslen
+ uyar:
+  description: Uyar
+ tamir:
+  description: Tamir
+ lobi:
+  description: Lobiye Git
