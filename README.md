@@ -2,9 +2,15 @@
 Essentials Plugin For Pocketmine
 # PEDevsEsssentials Plugin for Pocketmine
 # TODO:
-- [ ] Fly
-- [ ] Heal
-- [ ] Feed
-- [ ] gmc
-- [ ] gma
-- [ ] gms
+- [x] Fly
+- [x] Heal
+- [x] Feed
+- [x] gmc
+- [x] gma
+- [x] gms
+- [x] Warn System
+- [x] Spawn
+- [x] Repair
+- [ ] TPA System
+
+
