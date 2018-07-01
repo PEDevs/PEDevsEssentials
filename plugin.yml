@@ -1,6 +1,10 @@
 name: PEDevsEssentials
 version: 1.0
-api: [3.0.0]
+api:
+- 3.0.0
+- 3.0.1
+- 3.0.0-ALPHA12
+- 3.0.4
 main: PEDevs\BaseAPI
 author: PEDevs
 website: https://github.com/PEDevs
@@ -18,3 +22,9 @@ permissions:
         default: op
     essentials.repair.commands:
         default: op
+    essentials.tpa.commands:
+        default: true
+    essentials.tpak.commands:
+        default: true
+    essentials.tpar.commands:
+        default: true
