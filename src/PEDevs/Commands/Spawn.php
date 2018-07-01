@@ -7,6 +7,9 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
+use pocketmine\level\Level;
+use pocketmine\level\Poistion;
+use pocketmine\math\Vector3;
 
 class Spawn extends Command{
 
