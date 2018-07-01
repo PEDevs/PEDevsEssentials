@@ -75,9 +75,9 @@ class BaseAPI extends PluginBase{
     public function tpak(string $name) : void{
         $player = $this->getServer()->getPlayer($name);
         if($this->getInviteControl($name)){
-            unset($this->invite[$name]);
-            $sender = $this->getServer()->getPlayer($this->getInvite());
+            $sender = $this->getServer()->getPlayer($this->getInvite($name));
             $sender->teleport($player->asPosition());
+            unset($this->invite[$name]);
             $sender->sendMessage($name . "Işınlanma isteğinizi kabul etti.");
         }else{
             $player->sendMessage("Davet almamışsınız.");
@@ -87,8 +87,8 @@ class BaseAPI extends PluginBase{
     public function tpar($name) : void{
            $player = $this->getServer()->getPlayer($name);
         if($this->getInviteControl($name)){
+            $sender = $this->getServer()->getPlayer($this->getInvite($name));
             unset($this->invite[$name]);
-            $sender = $this->getServer()->getPlayer($this->getInvite());
             $sender->sendMessage($name . "Işınlanma isteğinizi reddetti.");
         }else{
             $player->sendMessage("Davet almamışsınız.");
