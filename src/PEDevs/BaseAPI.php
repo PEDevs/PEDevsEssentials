@@ -78,9 +78,9 @@ class BaseAPI extends PluginBase{
             $sender = $this->getServer()->getPlayer($this->getInvite($name));
             $sender->teleport($player->asPosition());
             unset($this->invite[$name]);
-            $sender->sendMessage($name . "Işınlanma isteğinizi kabul etti.");
+            $sender->sendMessage(TextFormat::AQUA . $name . " Işınlanma isteğinizi kabul etti.");
         }else{
-            $player->sendMessage("Davet almamışsınız.");
+            $player->sendMessage(TextFormat::RED . "Davet almamışsınız.");
         }
     }
      
@@ -89,9 +89,10 @@ class BaseAPI extends PluginBase{
         if($this->getInviteControl($name)){
             $sender = $this->getServer()->getPlayer($this->getInvite($name));
             unset($this->invite[$name]);
-            $sender->sendMessage($name . "Işınlanma isteğinizi reddetti.");
+            $sender->sendMessage(TextFormat::AQUA . $name . TextFormat::RED.
+" Işınlanma isteğinizi reddetti.");
         }else{
-            $player->sendMessage("Davet almamışsınız.");
+            $player->sendMessage(TextFormat::RED . "Davet almamışsınız.");
         }
     }
     
