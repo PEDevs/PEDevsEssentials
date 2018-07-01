@@ -26,7 +26,8 @@ class CommandManager{
             "tpak" => new Tpak(),
             "tpar" => new Tpar(),
             "tpaall" => new TpaAll(),
-            "bd" => new Broadcast()
+            "bd" => new Broadcast(),
+            "afk" => new AFK()
         ];
     }
 
