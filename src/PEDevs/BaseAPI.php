@@ -89,8 +89,8 @@ class BaseAPI extends PluginBase{
         if($this->getInviteControl($name)){
             $sender = $this->getServer()->getPlayer($this->getInvite($name));
             unset($this->invite[$name]);
-            $sender->sendMessage(TextFormat::AQUA . $name . TextFormat::RED.
-" Işınlanma isteğinizi reddetti.");
+            $sender->sendMessage(TextFormat::AQUA . $name . TextFormat::RED . "Işınlanma isteğinizi reddetti");
+
         }else{
             $player->sendMessage(TextFormat::RED . "Davet almamışsınız.");
         }
