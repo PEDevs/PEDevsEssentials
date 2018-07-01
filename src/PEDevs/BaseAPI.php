@@ -5,6 +5,7 @@ namespace PEDevs;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
+use pocketmine\Player;
 
 class BaseAPI extends PluginBase{
 
@@ -12,6 +13,8 @@ class BaseAPI extends PluginBase{
     private static $api;
     /** @var Config */
     public $warn;
+    /** @var TpaCommands */
+    public $invite = [];
     
     public function onLoad(){
         self::$api = $this;
@@ -55,4 +58,40 @@ class BaseAPI extends PluginBase{
             $player->setBanned(true);
         }
     }
+    
+    public function setInvite(Player $sender, Player $player) : void{
+        $this->invite[$player->getName()] = $sender->getName();
+    }
+    
+    public function getInviteControl(string $name) : bool{
+        return isset($this->invite[$name]);
+    }
+    
+    public function getInvite($name) : string{
+        return $this->invite[$name];
+    }
+    
+    public function tpak(string $name) : void{
+        $player = $this->getServer()->getPlayer($name);
+        if($this->getInviteControl($name)){
+            unset($this->invite[$name]);
+            $sender = $this->getServer()->getPlayer($this->getInvite());
+            $sender->teleport($player->asPosition());
+            $sender->sendMessage($name . "Işınlanma isteğinizi kabul etti.");
+        }else{
+            $player->sendMessage("Davet almamışsınız.");
+        }
+    }
+     
+    public function tpar($name) : void{
+           $player = $this->getServer()->getPlayer($name);
+        if($this->getInviteControl($name)){
+            unset($this->invite[$name]);
+            $sender = $this->getServer()->getPlayer($this->getInvite());
+            $sender->sendMessage($name . "Işınlanma isteğinizi reddetti.");
+        }else{
+            $player->sendMessage("Davet almamışsınız.");
+        }
+    }
+    
 }
