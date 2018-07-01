@@ -2,7 +2,7 @@
 
 namespace PEDevs\Managers;
 
-use PEDevs\Commands\{Feed, Heal, Repair, Spawn, Warn, Tpa, Tpak, Tpar, Broadcast};
+use PEDevs\Commands\{Feed, Heal, Repair, Spawn, Warn, Tpa, TpaAll, Tpak, Tpar, Broadcast};
 use pocketmine\utils\TextFormat;
 use PeDevs\BaseAPI;
 
@@ -25,6 +25,7 @@ class CommandManager{
             "tpa" => new Tpa(),
             "tpak" => new Tpak(),
             "tpar" => new Tpar(),
+            "tpaall" => new TpaAll(),
             "bd" => new Broadcast()
         ];
     }
