@@ -57,12 +57,12 @@ $sender->sendMessage(TextFormat::AQUA . $player->getName() . TextFormat::GREEN .
 
 $sender->sendMessage(TextFormat::RED . "Please enter a valid player.");
 
-}
+ }
 
 }
 
 return true;
 
-}
+ }
 
 }
