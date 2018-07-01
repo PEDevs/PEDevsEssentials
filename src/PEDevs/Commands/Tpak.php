@@ -18,7 +18,7 @@ use pocketmine\Player;
 
 use pocketmine\utils\TextFormat;
 
-class Tpa extends Command{
+class Tpak extends Command{
 
     /** @var BaseAPI */
 
