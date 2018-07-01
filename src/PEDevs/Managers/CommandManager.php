@@ -2,9 +2,9 @@
 
 namespace PEDevs\Managers;
 
-use PEDevs\Commands\{Feed, Heal, Repair, Spawn, Warn, Tpa, Tpak,};
+use PEDevs\Commands\{Feed, Heal, Repair, Spawn, Warn, Tpa, Tpak};
 use pocketmine\utils\TextFormat;
-use PeDevs\BaseAPI
+use PeDevs\BaseAPI;
 
 class CommandManager{
 
