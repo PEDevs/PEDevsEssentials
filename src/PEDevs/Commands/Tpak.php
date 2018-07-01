@@ -38,7 +38,7 @@ class Tpak extends Command{
 
       if(!$this->testPermission($sender)) return false;
 
-        if(empty($args[0])){
+        if(!empty($args[0])){
 
             $sender->sendMessage(TextFormat::RED."Use: /tpak");
 
