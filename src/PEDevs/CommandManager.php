@@ -2,11 +2,7 @@
 
 namespace PEDevs;
 
-use PEDevs\Commands\Feed;
-use PEDevs\Commands\Heal;
-use PEDevs\Commands\Repair;
-use PEDevs\Commands\Spawn;
-use PEDevs\Commands\Warn;
+use PEDevs\Commands\{Feed, Heal, Repair, Spawn, Warn, Tpa};
 use pocketmine\utils\TextFormat;
 
 class CommandManager{
@@ -24,7 +20,8 @@ class CommandManager{
             "heal" => new Heal(),
             "repair" => new Repair(),
             "spawn" => new Spawn(),
-            "warn" => new Warn()
+            "warn" => new Warn(),
+            "tpa" => new Tpa()
         ];
     }
 
