@@ -1,7 +1,7 @@
 name: PEDevsEssentials
 version: 1.0
 api: [3.0.0]
-main: PEDevs\MainBase
+main: PEDevs\BaseAPI
 author: PEDevs
 website: https://github.com/PEDevs
 
