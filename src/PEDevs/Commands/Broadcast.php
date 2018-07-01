@@ -25,6 +25,7 @@ class Feed extends Command{
         if(!$this->testPermission($sender)) return false;
         
       $msg = implode(" ", $args);
+       $prefix = §7[§bBroad§aCaster§7];
       $this->getServer()->broadcastMessage($prefix . " ". $msg);
   }
 }
