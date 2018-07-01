@@ -49,7 +49,7 @@ if($player instanceof Player){
 
 $this->plugin->setInvite($sender,$player);
 
-$player->sendMessage(TextFormat::YELLOW . $sender->getName() . TextFormat::GREEN . "size ışınlanma isteği gönderdi!\nKabul ekmek için /tpak\nKabul etmemek için /tpar");
+$player->sendMessage(TextFormat::AQUA . $sender->getName() . TextFormat::GREEN . " size ışınlanma isteği gönderdi!\n".TextFormat::WHITE."Kabul ekmek için".TextFormat::GREEN." /tpak\n".TextFormat::WHITE."Reddetmek için".TextFormat::RED." /tpar");
 
 $sender->sendMessage(TextFormat::AQUA . $player->getName() . TextFormat::GREEN . " oyuncusuna davet gönderildi!");
 
