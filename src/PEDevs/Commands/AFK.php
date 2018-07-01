@@ -29,8 +29,9 @@ class AFK extends Command{
 		parent::__construct("afk", "Afk Command");
 	}
 	
-	public function execute(CommandSender $sender, string $commandLabel array $args): bool{
+	public function execute(CommandSender $sender, string $commandLabel, array $args): bool{
 		$sender->sendMessage(TextFormat::AQUA . "You are Now ".TextFormat::GREEN."AFK");
+		
 		$this->getServer()->broadcastMessage("§c$sender->getName() §bis §aNow §bAFK");
 	}
 }
