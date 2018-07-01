@@ -9,7 +9,7 @@ use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 
-class Feed extends Command{
+class Broadcast extends Command{
 
     /** @var BaseAPI */
     private $plugin;
