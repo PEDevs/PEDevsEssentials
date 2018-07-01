@@ -6,7 +6,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 use pocketmine\Player;
-use PEDevs\Managers\CommandManager
+use PEDevs\Managers\CommandManager;
     
 class BaseAPI extends PluginBase{
 
