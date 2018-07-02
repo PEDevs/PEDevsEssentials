@@ -2,7 +2,7 @@
 
 namespace PEDevs\Managers;
 
-use PEDevs\Commands\{Feed, Heal, Repair, Spawn, Warn, Tpa, TpaAll, Tpak, Tpar, Broadcast};
+use PEDevs\Commands\{Feed, Heal, Repair, Spawn, Warn, Tpa, TpaAll, Tpak, Tpar, Broadcast, AFK};
 use pocketmine\utils\TextFormat;
 use PeDevs\BaseAPI;
 
