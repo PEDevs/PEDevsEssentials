@@ -9,5 +9,5 @@
 - [ ] Warn System (%25 finish)
 - [x] Spawn
 - [x] Repair
-- [ ] TPA System
+- [x] TPA System
 - [x] Broadcast
