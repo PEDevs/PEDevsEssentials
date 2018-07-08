@@ -41,7 +41,7 @@ class Repair extends Command{
                                 $sender->getInventory()->sendContents();
                                 $sender->sendMessage(TextFormat::GREEN . "You successfully repaired your all items.");
                                 
-                            ]
+                            }
                             
                         }
                         break;
