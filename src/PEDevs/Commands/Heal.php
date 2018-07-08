@@ -33,12 +33,16 @@ class Heal extends Command{
             }
         }else{
             $player = $this->plugin->getServer()->getPlayer($args[0]);
-            if($player instanceof Player){
-                $player->setHealth(20);
-                $player->sendMessage(TextFormat::GREEN . "You have been healed!");
-                $sender->sendMessage(TextFormat::AQUA . $player->getName() . TextFormat::GREEN . " have been healed!");
+            if($sender->isOp()) {
+                if($player instanceof Player){
+                    $player->setHealth(20);
+                    $player->sendMessage(TextFormat::GREEN . "You have been healed!");
+                    $sender->sendMessage(TextFormat::AQUA . $player->getName() . TextFormat::GREEN . " have been healed!");
+                }else{
+                    $sender->sendMessage(TextFormat::RED . "Please enter a valid player.");
+                }
             }else{
-                $sender->sendMessage(TextFormat::RED . "Please enter a valid player.");
+                $sender->sendMessage(TextFormat::RED . "You must be op.");
             }
         }
         return true;
