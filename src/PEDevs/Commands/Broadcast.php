@@ -13,6 +13,9 @@ class Broadcast extends Command{
 
     /** @var BaseAPI */
     private $plugin;
+    
+    /** @var string */
+    const BROADCAST = "§5[§dBroadcast§5]";
 
     public function __construct(){
         $this->plugin = BaseAPI::getInstance();
@@ -23,9 +26,11 @@ class Broadcast extends Command{
 
     public function execute(CommandSender $sender, string $commandLabel, array $args) : bool{
         if(!$this->testPermission($sender)) return false;
-        
-      $msg = implode(" ", $args);
-       $prefix = §7[§bBroad§aCaster§7];
-      $this->getServer()->broadcastMessage($prefix . " ". $msg);
-  }
+        if(empty($args[0]) {
+            $sender->sendMessage(TextFormat::RED . "Usage : /bd <message>");
+        }else{
+            $message = implode(" ", $args);
+            Server::getInstance()->broadcastMessage(self::BROADCAST . "§f" . $message);
+        }
+    }
 }
