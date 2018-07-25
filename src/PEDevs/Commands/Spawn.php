@@ -26,7 +26,7 @@ class Spawn extends Command{
     public function execute(CommandSender $sender, string $commandLabel, array $args){
         if($sender instanceof Player){
             $sender->sendMessage(TextFormat::GREEN . "Teleporting spawn...");
-            $sender->teleport($this->plugin->getServer()->getDefaultLevel()->getSpawnLocation(), $this->plugin->getServer()->getDefaultLevel());
+            $sender->teleport($this->plugin->getServer()->getDefaultLevel()->getSafeSpawn(),0,0);
         }else{
             $sender->sendMessage(TextFormat::RED . "Please use this command in game.");
         }
