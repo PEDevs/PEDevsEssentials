@@ -26,7 +26,7 @@ class Broadcast extends Command{
 
     public function execute(CommandSender $sender, string $commandLabel, array $args) : bool{
         if(!$this->testPermission($sender)) return false;
-        if(empty($args[0]) {
+        if(empty($args[0])) {
             $sender->sendMessage(TextFormat::RED . "Usage : /bd <message>");
         }else{
             $message = implode(" ", $args);
