@@ -17,7 +17,7 @@ class Repair extends Command{
     public function execute(CommandSender $sender, string $commandLabel, array $args){
         if(!$this->testPermission($sender)) return false;
         if($sender instanceof Player){
-            if(empty($args[0]) {
+            if(empty($args[0])) {
                 $item = $sender->getInventory()->getItemInHand();
                 if($item->getId() == 0) {
                     $sender->sendMessage(TextFormat::RED . "You can't repair your hand.");
