@@ -27,22 +27,22 @@ class Heal extends Command{
         if(empty($args[0])){
             if($sender instanceof Player){
                 $sender->setHealth(20);
-                $sender->sendMessage(TextFormat::GREEN . "You have been healed!");
+                $sender->sendMessage(TextFormat::GREEN . "İyileştin!");
             }else{
-                $sender->sendMessage(TextFormat::RED . "Please use this command in game.");
+                $sender->sendMessage(TextFormat::RED . "Komutu oyun içinde kullanın.");
             }
         }else{
             $player = $this->plugin->getServer()->getPlayer($args[0]);
             if($sender->isOp()) {
                 if($player instanceof Player){
                     $player->setHealth(20);
-                    $player->sendMessage(TextFormat::GREEN . "You have been healed!");
-                    $sender->sendMessage(TextFormat::AQUA . $player->getName() . TextFormat::GREEN . " have been healed!");
+                    $player->sendMessage(TextFormat::GREEN . "İyileştin!");
+                    $sender->sendMessage(TextFormat::AQUA . $player->getName() . TextFormat::GREEN . " iyileşti!");
                 }else{
-                    $sender->sendMessage(TextFormat::RED . "Please enter a valid player.");
+                    $sender->sendMessage(TextFormat::RED . "Geçerli bir oyuncu adı girin.");
                 }
             }else{
-                $sender->sendMessage(TextFormat::RED . "You must be op.");
+                $sender->sendMessage(TextFormat::RED . "Bunun için yetkin yok.");
             }
         }
         return true;
