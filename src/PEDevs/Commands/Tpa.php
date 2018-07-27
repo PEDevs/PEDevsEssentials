@@ -39,7 +39,7 @@ if(!$this->testPermission($sender)) return false;
 
 if(empty($args[0])){
 
-$sender->sendMessage(TextFormat::RED."Oyuncu bulunamadı!");
+$sender->sendMessage(TextFormat::RED."/tpa <oyuncu>!");
 
 }else{
 
@@ -55,7 +55,7 @@ $sender->sendMessage(TextFormat::AQUA . $player->getName() . TextFormat::GREEN .
 
 }else{
 
-$sender->sendMessage(TextFormat::RED . "Please enter a valid player.");
+$sender->sendMessage(TextFormat::RED . "Geçerli bir oyuncu adı girin.");
 
  }
 
