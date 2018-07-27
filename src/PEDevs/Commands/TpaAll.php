@@ -44,7 +44,7 @@ class TpaAll extends Command{
 
         }else{
 
-            $s->sendMessage("Teleporting...");
+            $sender->sendMessage("Teleporting...");
             foreach($this->plugin->getServer()->getOnlinePlayers() as $player){
             	$player->teleport($sender->asPosition());
             }
