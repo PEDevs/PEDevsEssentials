@@ -22,22 +22,37 @@ class Fly extends Command{
 
     public function execute(CommandSender $sender, string $commandLabel, array $args) : bool{
         if(!$this->testPermission($sender)) return false;
-
-        if(empty($args[0])){
-            if($sender instanceof Player){
-                $sender->setAllowFlight(true);
-                $sender->sendMessage(TextFormat::GREEN . "You have been flying!");
-            }else{
-                $sender->sendMessage(TextFormat::RED . "Please use this command in game.");
+        if(empty($args[0])) {
+            switch($sender->getAllowFlight()) {
+                    case true;
+                      $sender->setAllowFlight(false);
+                      $sender->sendMessage(TextFormat::GREEN."Fly has been enabled.");
+                    break;
+                    case false;
+                       $sender->setAllowFlight(true);
+                       $sender->sendMessage(TextFormat::RED."Fly has been disabled.");
+                    break; 
             }
+            
         }else{
-            $player = $this->plugin->getServer()->getPlayer($args[0]);
-            if($player instanceof Player){
-                $player->setAllowFlight(true);
-                $player->sendMessage(TextFormat::GREEN . "You have been flying!");
-                $sender->sendMessage(TextFormat::AQUA . $player->getName() . TextFormat::GREEN . " have been flying!");
+            if($sender->hasPermission("fly.other")) {
+                $player = Server::getInstance()->getPlayer($args[0]);
+                if($player instanceof Player) {
+                    switch($player->getAllowFlight()) {
+                            case true;
+                              $player->setAllowFlight(false);
+                              $player->sendMessage(TextFormat::GREEN."Fly has been enabled.");
+                            break;
+                            case false;
+                               $player->setAllowFlight(true);
+                               $player->sendMessage(TextFormat::RED."Fly has been disabled.");
+                            break;
+                    }
+                }else{
+                    $player->sendMessage(TextFormat::RED."Player not online.");
+                }
             }else{
-                $sender->sendMessage(TextFormat::RED . "Please enter a valid player.");
+                $player->sendMessage(TextFormat::RED."You dont have permission to fly other players.");
             }
         }
         return true;
