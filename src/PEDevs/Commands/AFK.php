@@ -27,14 +27,14 @@ class AFK extends Command{
 	}
 	
 	public function execute(CommandSender $sender, string $commandLabel, array $args): bool{
-		if($this->plugin->getAfkState($sender) === null || $this->plugin->getAfkState($sender) == "no-afk"){         
-           $sender->sendMessage(TF::RED . "AFK Durumun " . TF::AQUA . "\"AFK\" " . TF::RED . "olarak ayarlandı");
-           $sender->setNameTag(TF::RED . "AFK\n" . $sender->getNameTag());
-           $this->plugin->setAfkState($sender, "afk");
-     }else{
-          $sender->sendMessage(TF::RED . "AFK Durumun " . TF::AQUA . "\"AFK Değil\" " . TF::RED . "olarak ayarlandı");
-         $sender->setNameTag($sender->getDisplayName());
-        $this->plugin->setAfkState($sender);
-     }
-	}
+       		if($this->plugin->getAfkState($sender) === null || $this->plugin->getAfkState($sender) == "no-afk"){         
+               $sender->sendMessage(TF::RED . "AFK Durumun " . TF::AQUA . "\"AFK\" " . TF::RED . "olarak ayarlandı");
+                $sender->setNameTag(TF::RED . "AFK\n" . $sender->getNameTag());
+                $this->plugin->setAfkState($sender, "afk");
+          }else{
+                $sender->sendMessage(TF::RED . "AFK Durumun " . TF::AQUA . "\"AFK Değil\" " . TF::RED . " olarak ayarlandı");
+                $sender->setNameTag($sender->getDisplayName());
+                $this->plugin->setAfkState($sender);
+         }
+	 }
 }
