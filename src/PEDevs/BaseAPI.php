@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PEDevs;
 
 use pocketmine\plugin\PluginBase;
@@ -10,12 +12,17 @@ use PEDevs\Managers\CommandManager;
     
 class BaseAPI extends PluginBase{
 
-    /** @var BaseAPI */
+    /** @var BaseAPI $api */
     private static $api;
-    /** @var Config */
+
+    /** @var Config $warn */
     public $warn;
-    /** @var TpaCommands */
+
+    /** @var array[] $invite */
     public $invite = [];
+    
+    /** @var array[] $afks */
+    public $afks = [];
     
     public function onLoad(){
         self::$api = $this;
@@ -23,11 +30,11 @@ class BaseAPI extends PluginBase{
 
     public function onEnable(){
         @mkdir($this->getDataFolder());
-        @mkdir($this->getDataFolder() . "Players/");
+        @mkdir($this->getDataFolder() . "players/");
 
         CommandManager::init();
 
-        $this->getLogger()->info(TextFormat::GOLD . $this->getName() . TextFormat::GREEN . " activated!");
+        $this->getLogger()->info(TextFormat::GOLD . $this->getName() . TextFormat::GREEN . " aktifleştirildi!");
     }
 
     public static function getInstance() : BaseAPI{
@@ -45,7 +52,6 @@ class BaseAPI extends PluginBase{
         $data = new Config($this->getDataFolder() . $name . ".yml", Config::YAML);
         $data->set($reason, $point);
         $data->save();
-
         $this->getPointControl($name);
     }
 
@@ -55,7 +61,7 @@ class BaseAPI extends PluginBase{
 
         $player = $this->getServer()->getPlayer($name);
         if($points >= 10){
-            $player->kick(TextFormat::RED . "You have been removed from the server since you reached 10 points.");
+            $player->kick(TextFormat::RED . "10 puan aldığın için sunucudan uzaklaştırıldın!");
             $player->setBanned(true);
         }
     }
@@ -64,7 +70,7 @@ class BaseAPI extends PluginBase{
         $this->invite[$player->getName()] = $sender->getName();
     }
     
-    public function getInviteControl(string $name) : bool{
+    public function isInvited(string $name) : bool{
         return isset($this->invite[$name]);
     }
     
@@ -74,7 +80,7 @@ class BaseAPI extends PluginBase{
     
     public function tpak(string $name) : void{
         $player = $this->getServer()->getPlayer($name);
-        if($this->getInviteControl($name)){
+        if($this->isInvited($name)){
             $sender = $this->getServer()->getPlayer($this->getInvite($name));
             $sender->teleport($player->asPosition());
             unset($this->invite[$name]);
@@ -86,14 +92,21 @@ class BaseAPI extends PluginBase{
      
     public function tpar($name) : void{
            $player = $this->getServer()->getPlayer($name);
-        if($this->getInviteControl($name)){
+        if($this->isInvited($name)){
             $sender = $this->getServer()->getPlayer($this->getInvite($name));
             unset($this->invite[$name]);
-            $sender->sendMessage(TextFormat::AQUA . $name . TextFormat::RED . "Işınlanma isteğinizi reddetti");
+            $sender->sendMessage(TextFormat::AQUA . $name . TextFormat::RED . " Işınlanma isteğinizi reddetti");
 
         }else{
             $player->sendMessage(TextFormat::RED . "Davet almamışsınız.");
         }
     }
-    
+
+    public function getAfkState(Player $player): ?bool{
+        return isset($this->afks[$player->getName()]) ? $this->afks[$player->getName()] : null;
+    }
+
+    public function setAfkState(Player $player, string $state = "no-afk"): void{
+        $this->afks[$player->getName()] = $state;
+    }
 }
