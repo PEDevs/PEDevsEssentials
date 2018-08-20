@@ -9,27 +9,27 @@ use PeDevs\BaseAPI;
 class CommandManager{
 
     public static function init() : void{
-        foreach(self::getCommands() as $key => $value){
-            BaseAPI::getInstance()->getServer()->getCommandMap()->register($key, $value);
-        }
-        BaseAPI::getInstance()->getLogger()->notice(TextFormat::DARK_GRAY . self::getCommandCount() . TextFormat::LIGHT_PURPLE . " commands have been loaded.");
+         $api = BaseAPI::getInstance();
+
+         $api->getServer()->getCommandMap()->registerAll("PEDevsEssentials", self::getCommands());
+
+        $api->getLogger()->notice(TextFormat::DARK_GRAY . self::getCommandCount() . TextFormat::LIGHT_PURPLE . " commands have been loaded.");
     }
 
     public static function getCommands() : array{
         return [
-            "feed" => new Feed(),
-            "heal" => new Heal(),
-            "repair" => new Repair(),
-            "spawn" => new Spawn(),
-            "warn" => new Warn(),
-            "tpa" => new Tpa(),
-            "tpak" => new Tpak(),
-            "tpar" => new Tpar(),
-            "tpaall" => new TpaAll(),
-            "bd" => new Broadcast(),
-            "afk" => new AFK(),
-            "fly" => new Fly()
-
+            new Feed,
+            new Heal,
+            new Repair,
+            new Spawn,
+            new Warn,
+            new Tpa,
+            new Tpak,
+            new Tpar,
+            new TpaAll,
+            new Broadcast,
+            new AFK,
+            new Fly
         ];
     }
 
