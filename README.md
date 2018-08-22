@@ -1,5 +1,5 @@
 # PEDevsEssentials
-
+# <img src="./image.png" height="250" width="250">
 [![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/xkk6g8M)
 # PEDevsEsssentials Plugin for PocketMine & Altay
 # TODO:
